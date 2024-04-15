@@ -1,0 +1,15 @@
+---
+import { Picture } from 'astro:assets';
+
+interface Props {
+    caption: string;
+}
+
+const { caption } = Astro.props;
+
+---
+
+<figure>
+    <slot/>
+    <figcaption>{caption}</figcaption>
+</figure>

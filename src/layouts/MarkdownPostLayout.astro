@@ -1,0 +1,12 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+    <a href="/" style="font-size:1rem; text-decoration: none;">
+        &larr; <span style="text-decoration: underline;">Back to homepage</span>
+    </a>
+    <slot />
+</BaseLayout>
