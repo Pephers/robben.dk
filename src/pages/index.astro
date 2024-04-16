@@ -11,11 +11,13 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
     <h2>Archive</h2>
     <ul>
         {
-            allPosts.filter((post) => post.frontmatter.published).map((post) => (
-                <li>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                </li>
-            ))
+            allPosts
+                .filter((post) => post.frontmatter.published)
+                .map((post) => (
+                    <li>
+                        <a href={post.url}>{post.frontmatter.title}</a>
+                    </li>
+                ))
         }
     </ul>
 </BaseLayout>

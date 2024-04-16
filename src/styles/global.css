@@ -1,13 +1,25 @@
+:root {
+    --content-max-width: 80dvh;
+}
+
 body {
     font-family: "Helvetica Neue", sans-serif;
     font-size: clamp(16px, 2dvw, 18px);
-    max-width: 80dvh;
-    margin: 0 auto;
+    margin: 0;
     padding: 1em;
     background: #fdefd8;
     color: #2f271b;
     font-family: Palatino, Georgia, "Times New Roman", Times, serif;
     letter-spacing: -0.01em;
+    display: grid;
+    grid-template-columns: [full-start] minmax(0, 1fr) [content-start] minmax(
+            0,
+            var(--content-max-width)
+        ) [content-end] minmax(0, 1fr) [full-end];
+}
+
+body > * {
+    grid-column: content;
 }
 
 a {
@@ -34,29 +46,14 @@ p {
     margin: 0;
     line-height: 1.5;
 }
+
 p + p,
 p + h1,
 p + h2 {
     margin-top: 1em;
 }
 
-figure {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    background: #ffffff;
-    border: 1px solid #d0bea2;
-    box-sizing: border-box;
-}
-
-figcaption {
-    margin-top: 0.25rem;
-    color: #6d5e46;
-    font-size: 16px;
-    font-style: italic;
-}
-
 img {
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 100%;
 }

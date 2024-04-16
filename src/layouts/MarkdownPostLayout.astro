@@ -4,8 +4,15 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
+<style>
+    a {
+        font-size: 1rem;
+        text-decoration: none;
+    }
+</style>
+
 <BaseLayout pageTitle={frontmatter.title}>
-    <a href="/" style="font-size:1rem; text-decoration: none;">
+    <a href="/">
         &larr; <span style="text-decoration: underline;">Back to homepage</span>
     </a>
     <slot />
