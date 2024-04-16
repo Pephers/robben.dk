@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
     }
 </style>
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} description={frontmatter.description}>
     <a href="/">
         &larr; <span style="text-decoration: underline;">Back to homepage</span>
     </a>
