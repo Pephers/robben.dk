@@ -12,10 +12,12 @@ body {
     font-family: Palatino, Georgia, "Times New Roman", Times, serif;
     letter-spacing: -0.01em;
     display: grid;
-    grid-template-columns: [full-start] minmax(0, 1fr) [content-start] minmax(
+    grid-template-columns:
+        [full-start] minmax(0, 1fr) [content-start] minmax(
             0,
             var(--content-max-width)
-        ) [content-end] minmax(0, 1fr) [full-end];
+        )
+        [content-end] minmax(0, 1fr) [full-end];
 }
 
 body > * {
@@ -24,6 +26,12 @@ body > * {
 
 a {
     color: #1f39bc;
+}
+
+h1,
+h2 {
+    overflow-wrap: break-word;
+    text-wrap: balance;
 }
 
 h1 {
@@ -45,6 +53,7 @@ h2 {
 p {
     margin: 0;
     line-height: 1.5;
+    text-wrap: pretty;
 }
 
 p + p,
