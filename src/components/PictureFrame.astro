@@ -1,17 +1,19 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 interface Props {
     caption: string;
+    image: ImageMetadata;
 }
 
-const { caption } = Astro.props;
+const { image, caption } = Astro.props;
 ---
 
 <style>
     figure {
         grid-column: full;
-        max-width: 150dvh;
+        width: calc(var(--content-max-width) * 1.5);
+        max-width: 100%;
         margin: 1rem auto;
         padding: 0.5rem;
         background: #ffffff;
@@ -20,7 +22,7 @@ const { caption } = Astro.props;
     }
 
     figcaption {
-        margin-top: 0.25rem;
+        padding-top: 0.5rem;
         color: #6d5e46;
         font-size: 16px;
         font-style: italic;
@@ -31,6 +33,11 @@ const { caption } = Astro.props;
 </style>
 
 <figure>
-    <slot />
+    <Image
+        src={image}
+        layout="responsive"
+        sizes="(min-width: 800px) 800px, calc(var(--content-max-width) * 1.5)"
+        alt={caption}
+    />
     <figcaption>{caption}</figcaption>
 </figure>
