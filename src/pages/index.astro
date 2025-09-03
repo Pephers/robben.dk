@@ -2,7 +2,22 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const allPosts = await Astro.glob("../pages/posts/*.mdx");
+const postFiles = import.meta.glob<{
+  frontmatter: {
+    title: string;
+    published: boolean;
+  };
+}>("../pages/posts/*.mdx", { eager: true });
+
+const posts = Object.entries(postFiles)
+  .filter(([_, post]) => post.frontmatter.published)
+  .map(([path, post]) => {
+  const slug = path.split('/').pop()?.replace('.mdx', '');
+  return {
+    frontmatter: post.frontmatter,
+    url: `/posts/${slug}`
+  };
+});
 ---
 
 <BaseLayout pageTitle="Chiel Robben">
@@ -10,14 +25,10 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
     <p>Words about fly fishing from my trips over the years.</p>
     <h2>Archive</h2>
     <ul>
-        {
-            allPosts
-                .filter((post) => post.frontmatter.published)
-                .map((post) => (
-                    <li>
-                        <a href={post.url}>{post.frontmatter.title}</a>
-                    </li>
-                ))
-        }
+        {posts.map((post) => (
+            <li>
+                <a href={post.url}>{post.frontmatter.title}</a>
+            </li>
+        ))}
     </ul>
 </BaseLayout>
