@@ -6,7 +6,7 @@ body {
   font-family: "Helvetica Neue", sans-serif;
   font-size: clamp(16px, 2dvw, 18px);
   margin: 0;
-  padding: 1em;
+  padding: 2em 1em;
   background: #fdefd8;
   color: #2f271b;
   font-family: Palatino, Georgia, "Times New Roman", Times, serif;
