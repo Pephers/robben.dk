@@ -3,8 +3,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: clamp(16px, 2dvw, 18px);
+  font-size: clamp(1rem, 1rem + 0.5vw, 1.125rem);
   margin: 0;
   padding: 2em 1em;
   background: #fdefd8;
@@ -38,7 +37,7 @@ h1 {
   margin: 0.5em 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: normal;
-  font-size: 2em;
+  font-size: clamp(1.75rem, 1.5rem + 2vw, 2.5rem);
   letter-spacing: normal;
   text-transform: uppercase;
   color: #15796c;
@@ -46,7 +45,7 @@ h1 {
 
 h2 {
   margin: 0.5em 0;
-  font-size: 1.25em;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 }
 
 p {
