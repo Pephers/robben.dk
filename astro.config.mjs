@@ -6,5 +6,4 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://robben.dk",
   integrations: [mdx()],
-  responsiveImages: true,
 });

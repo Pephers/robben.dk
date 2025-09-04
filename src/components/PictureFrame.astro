@@ -35,7 +35,7 @@ const { image, caption } = Astro.props;
 <figure>
     <Image
         src={image}
-        sizes="(min-width: 800px) 800px, calc(var(--content-max-width) * 1.5)"
+        layout="constrained"
         alt={caption}
     />
     <figcaption>{caption}</figcaption>
