@@ -48,7 +48,8 @@ h2 {
   font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 }
 
-p {
+p,
+ul {
   margin: 0;
   line-height: 1.5;
   text-wrap: pretty;

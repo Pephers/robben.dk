@@ -7,16 +7,17 @@ const postFiles = import.meta.glob<{
     title: string;
     published: boolean;
   };
-}>("../pages/posts/*.mdx", { eager: true });
+}>("../pages/posts/**/*.mdx", { eager: true });
 
 const posts = Object.entries(postFiles)
   .filter(([_, post]) => post.frontmatter.published)
   .map(([path, post]) => {
-  const slug = path.split('/').pop()?.replace('.mdx', '');
-  return {
-    frontmatter: post.frontmatter,
-    url: `/posts/${slug}`
-  };
+    const slug = path.split('/')[2];
+
+    return {
+      frontmatter: post.frontmatter,
+      url: `/posts/${slug}`
+    };
 });
 ---
 
