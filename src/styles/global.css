@@ -55,6 +55,10 @@ ul {
   text-wrap: pretty;
 }
 
+li + li {
+  margin-top: 0.25em;
+}
+
 p + p,
 p + h1,
 p + h2 {
