@@ -6,6 +6,7 @@ const postFiles = import.meta.glob<{
   frontmatter: {
     title: string;
     published: boolean;
+    category: string;
   };
 }>("../pages/posts/**/*.mdx", { eager: true });
 
@@ -19,17 +20,33 @@ const posts = Object.entries(postFiles)
       url: `/posts/${slug}`
     };
 });
+
+const postsByCategory = Object.entries(posts)
+  .reduce((acc, [_, post]) => {
+    const category = post.frontmatter.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(post);
+
+    return acc;
+  }, {} as Record<string, typeof posts>);
+
 ---
 
 <BaseLayout description="Words about fly fishing from my trips over the years.">
     <h1>Chiel Robben&rsquo;s Fly Fishing</h1>
     <p>Words about fly fishing from my trips over the years.</p>
-    <h2>New Zealand</h2>
-    <ul>
-        {posts.map((post) => (
-            <li>
-                <a href={post.url}>{post.frontmatter.title}</a>
-            </li>
-        ))}
-    </ul>
+
+
+        {Object.entries(postsByCategory).map(([category, posts]) => (
+        <h2>{category}</h2>
+        <ul>
+            {posts.map((post) => (
+                <li>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                </li>
+            ))}
+        </ul>
+    ))}
 </BaseLayout>
