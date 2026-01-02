@@ -1,16 +1,26 @@
 ---
 import "../styles/global.css";
 
-const { pageTitle, description } = Astro.props;
+export interface Props {
+  pageTitle?: string;
+  description?: string;
+}
+
+const {
+  pageTitle = "",
+  description = ""
+} = Astro.props;
+
 ---
 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-        {description && <meta name="description" content={description} />}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle ? `${pageTitle} – Chiel Robben's Fly Fishing` : "Chiel Robben's Fly Fishing"}</title>
+        <meta name="title" content={pageTitle} />
+        <meta name="description" content={description} />
+        <meta name="author" content="Chiel Robben" />
     </head>
     <body>
         <slot />

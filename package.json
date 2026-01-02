@@ -8,11 +8,13 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "seo:check": "echo 'Checking SEO implementation...' && echo 'Sitemap: http://localhost:4321/sitemap-index.xml' && echo 'Robots.txt: http://localhost:4321/robots.txt'"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.4",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.13.5",
     "typescript": "^5.7.3"
   }
